@@ -14,6 +14,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class EnergyCalculationService
 {
+    function probar()
+    {
+        echo "probar";
+    }
+    
     /**
      * Calcula el precio indexado, total de importes y total de consumos en un rango de fechas.
      *
