@@ -19,6 +19,12 @@ class EnergyCalculationService
         echo "probar";
     }
 
+    function probar2()
+    {
+        echo "prueba1";
+        echo "probar2";
+    }
+
     function probar3()
     {
         echo "probar3";
