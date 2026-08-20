@@ -24,11 +24,6 @@ class EnergyCalculationService
         echo "prueba1";
         echo "probar2";
     }
-
-    function probar3()
-    {
-        echo "probar3";
-    }
     
     /**
      * Calcula el precio indexado, total de importes y total de consumos en un rango de fechas.
