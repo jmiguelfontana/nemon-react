@@ -33,7 +33,7 @@ test.describe('Flujo E2E - Nemon Energy Calculator', () => {
     // Buscamos cualquiera de los dos elementos en la pantalla.
     
     const resultadoExito = page.getByText('Resultado del Cálculo');
-    const mensajeError = page.locator('.bg-rose-500\\/10'); // La caja roja de error de ErrorMessage.vue
+    const mensajeError = page.locator('.bg-rose-500\\/10'); // La caja roja de error de ErrorMessage.tsx
 
     // 3. Verificamos que aparezca UNO de los dos (pasando el test si el frontend reacciona correctamente)
     await expect(async () => {

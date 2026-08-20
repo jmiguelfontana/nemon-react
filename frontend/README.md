@@ -1,6 +1,6 @@
 # Frontend SPA - Cálculo de Precio Indexado de Energía (NEMON)
 
-Aplicación Single Page Application (SPA) desarrollada en **Vue 3**, **TypeScript** y **Tailwind CSS**, consumiendo la API REST del backend para el cálculo y visualización de precios indexados de energía.
+Aplicación Single Page Application (SPA) desarrollada en **React 18**, **TypeScript** y **Tailwind CSS**, consumiendo la API REST del backend para el cálculo y visualización de precios indexados de energía.
 
 ---
 
@@ -55,7 +55,7 @@ Aplicación Single Page Application (SPA) desarrollada en **Vue 3**, **TypeScrip
 
 El proyecto utiliza un enfoque bimodal para garantizar la calidad del código, separando el entorno local de las pruebas reales de integración:
 
-1. **Tests Unitarios (Vitest + Vue Test Utils)**
+1. **Tests Unitarios (Vitest + React Testing Library)**
    Simulan la API y prueban la lógica de los componentes de forma aislada. No requieren servidor backend.
    ```bash
    npm run test:unit

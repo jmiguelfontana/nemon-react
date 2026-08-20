@@ -30,25 +30,25 @@ Como aplicación para una **compañía comercializadora y consultora energética
 
 ## 🧩 2. COMPONENTES PRINCIPALES
 
-1. **`HeaderNav.vue`**:
+1. **`HeaderNav.tsx`**:
    - Branding de Nemon Energía con logo, título del sistema y badge de estado de API REST.
 
-2. **`CalculatorForm.vue`**:
+2. **`CalculatorForm.tsx`**:
    - Selectores de fecha con rangos rápidos ("Mes Actual", "Últimos 30 días").
    - Campo de fórmula interactivo con chips/botones para insertar rápido el token `[OMIE_MD]`.
    - Botón "Calcular Precio Indexado" con animación de carga / spinner.
 
-3. **`ResultCard.vue`**:
+3. **`ResultCard.tsx`**:
    - Métricas clave estilo dashboard energético:
      - **Precio Indexado Calculado (€/kWh)** en gran formato con degradado eléctrico.
      - Total Importes Acumulados (€).
      - Total Consumo Energético Acumulado (kWh).
 
-4. **`DataTable.vue`**:
+4. **`DataTable.tsx`**:
    - Tabla responsiva con pestañas para **Consumos (kWh)** y **Precios OMIE_MD (€/kWh)**.
    - Paginación y visualización clara de la distribución horaria `h1` a `h25`.
 
-5. **`ErrorMessage.vue`**:
+5. **`ErrorMessage.tsx`**:
    - Alertas dinámicas con diseño dark mode para comunicar errores `400 Bad Request`, `404 Not Found` (datos no encontrados) y `500 Internal Server Error`.
 
 ---
@@ -98,11 +98,11 @@ export interface ApiErrorResponse {
 
 ## 🛠️ 5. REGLAS DE DESARROLLO
 
-- **Vue 3 Composition API**: Usar `<script setup lang="ts">`.
+- **React 18**: Usar Componentes Funcionales y Hooks (`useState`, `useEffect`).
 - **TypeScript Estricto**: Sin `any`.
 - **Estilo Eléctrico & Premium**: Mantener la estética visual oscura con acentos cían/azul eléctrico y glassmorphism.
 - **Testing Bimodal**: 
-  - **Unit Testing**: Vitest y Vue Test Utils (comando: `npm run test:unit`) con mocks de la API (separación total del backend).
+  - **Unit Testing**: Vitest y React Testing Library (comando: `npm run test:unit`) con mocks de la API (separación total del backend).
   - **E2E Testing**: Playwright para pruebas de integración reales en los entornos locales y de producción (comandos: `npm run test:e2e` y `npm run test:e2e:prod`).
 - **Separación de Entornos (Local vs Prod)**: Asegurar en todo momento que el frontend funcione perfectamente tanto en local (Vite dev server) como en producción (Nginx/Docker), gestionando las variables de entorno (`.env`) y proxies de manera optimizada y sin configuraciones hardcodeadas.
 - **README Actualizado**: Mantener `frontend/README.md` alineado con cada cambio o nuevo componente/dependencia agregada.

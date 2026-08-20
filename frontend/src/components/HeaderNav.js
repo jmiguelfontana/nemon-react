@@ -1,0 +1,18 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState, useEffect } from 'react';
+import { Zap, BookOpen, RefreshCw } from 'lucide-react';
+import { checkApiHealth } from '../services/api';
+export default function HeaderNav() {
+    const [isOnline, setIsOnline] = useState(null);
+    const [isChecking, setIsChecking] = useState(false);
+    async function verifyStatus() {
+        setIsChecking(true);
+        const online = await checkApiHealth();
+        setIsOnline(online);
+        setIsChecking(false);
+    }
+    useEffect(() => {
+        verifyStatus();
+    }, []);
+    return (_jsx("header", { className: "sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300", children: _jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between", children: [_jsxs("div", { className: "flex items-center space-x-3", children: [_jsxs("div", { className: "relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-500 via-cyan-400 to-blue-600 shadow-[0_0_20px_rgba(14,165,233,0.5)]", children: [_jsx(Zap, { className: "w-6 h-6 text-slate-950 stroke-[2.5]" }), _jsxs("span", { className: "absolute -top-1 -right-1 flex h-3 w-3", children: [_jsx("span", { className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" }), _jsx("span", { className: "relative inline-flex rounded-full h-3 w-3 bg-cyan-400" })] })] }), _jsxs("div", { children: [_jsxs("div", { className: "flex items-center space-x-2", children: [_jsx("span", { className: "text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-sky-300 bg-clip-text text-transparent", children: "NEMON" }), _jsx("span", { className: "text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20", children: "Energy Tech" })] }), _jsx("p", { className: "text-xs text-slate-400 font-medium", children: "Calculadora de Precio Indexado OMIE_MD" })] })] }), _jsxs("div", { className: "flex items-center space-x-4", children: [_jsxs("a", { href: "/api/documentation", target: "_blank", rel: "noopener noreferrer", className: "hidden sm:flex items-center space-x-2 text-xs font-semibold px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:text-sky-400 border border-slate-800 hover:border-sky-500/30 transition-all", children: [_jsx(BookOpen, { className: "w-4 h-4 text-sky-400" }), _jsx("span", { children: "Swagger API Docs" })] }), _jsxs("div", { onClick: verifyStatus, className: `flex items-center space-x-2 text-xs font-medium px-3.5 py-1.5 rounded-full bg-slate-900/90 border cursor-pointer transition-all duration-300 ${isOnline ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5' : isOnline === false ? 'border-rose-500/30 text-rose-400 bg-rose-500/5' : 'border-slate-800 text-slate-400'}`, title: "Haz clic para comprobar estado de API REST", children: [_jsxs("span", { className: "relative flex h-2.5 w-2.5", children: [_jsx("span", { className: `animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isOnline ? 'bg-emerald-400' : isOnline === false ? 'bg-rose-400' : 'bg-amber-400'}` }), _jsx("span", { className: `relative inline-flex rounded-full h-2.5 w-2.5 ${isOnline ? 'bg-emerald-400' : isOnline === false ? 'bg-rose-400' : 'bg-amber-400'}` })] }), _jsx("span", { className: "font-semibold", children: isChecking ? 'Comprobando...' : isOnline ? 'API Conectada (PHP 8.4)' : isOnline === false ? 'API Desconectada' : 'Verificando...' }), _jsx(RefreshCw, { className: `w-3.5 h-3.5 ml-1 opacity-70 ${isChecking ? 'animate-spin' : ''}` })] })] })] }) }));
+}

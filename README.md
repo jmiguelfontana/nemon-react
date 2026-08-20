@@ -1,6 +1,6 @@
 # NEMON - Prueba Técnica de Indexado de Energía
 
-Solución web completa compuesta por una **API REST en PHP 8.4.4 / Laravel** y un **Frontend SPA en Vue 3, TypeScript y Tailwind CSS** para gestionar y calcular precios indexados de energía según la especificación técnica de **NEMON**.
+Solución web completa compuesta por una **API REST en PHP 8.4.4 / Laravel** y un **Frontend SPA en React 18, TypeScript y Tailwind CSS** para gestionar y calcular precios indexados de energía según la especificación técnica de **NEMON**.
 
 ---
 
@@ -22,8 +22,8 @@ nemon/
 │   ├── tests/          # Tests automatizados (PHPUnit)
 │   ├── AGENTS.md       # Especificaciones técnicas del Backend
 │   └── README.md       # Guía de instalación y uso del Backend
-├── frontend/           # SPA en Vue 3 + TypeScript + Vite + Tailwind CSS
-│   ├── src/            # Componentes Vue 3, Tipos TS y Cliente API Axios
+├── frontend/           # SPA en React 18 + TypeScript + Vite + Tailwind CSS
+│   ├── src/            # Componentes React, Tipos TS y Cliente API Axios
 │   ├── AGENTS.md       # Especificaciones técnicas y guía estética del Frontend
 │   └── README.md       # Guía de instalación y uso del Frontend
 ├── AGENTS.md           # Guía general de especificaciones del repositorio
@@ -45,7 +45,7 @@ Al existir libertad tecnológica en las bases de la prueba, se ha optado por una
 1. **Backend (Laravel 11 + PHP 8.4)**: Framework robusto que fomenta buenas prácticas, inyección de dependencias y código limpio.
 2. **ORM (Eloquent)**: Utilizado para la capa de persistencia con MySQL, garantizando una protección nativa contra inyecciones SQL en lugar de usar consultas crudas.
 3. **Cálculo Matemático (`nxp/math-executor`)**: Se delegó el parseo de la fórmula del cliente a esta librería léxica, **prohibiendo** explícitamente el uso de `eval()` para evitar vulnerabilidades de *Remote Code Execution* (RCE).
-4. **Frontend (Vue 3 Composition API + TypeScript)**: Proporciona tipado estricto y control total sobre el estado reactivo, evitando errores en tiempo de ejecución al manipular los datos de consumos.
+4. **Frontend (React 18 + TypeScript)**: Proporciona tipado estricto y control total sobre el estado reactivo, evitando errores en tiempo de ejecución al manipular los datos de consumos.
 5. **Documentación como Contrato (Swagger/OpenAPI)**: Se ha integrado Swagger en el backend para autogenerar una interfaz interactiva de la API, sirviendo como contrato estricto de datos.
 6. **Infraestructura (Docker + Nginx)**: Todo el proyecto está orquestado mediante contenedores para asegurar la *paridad entre desarrollo y producción*, utilizando Nginx como proxy inverso para aislar la API de forma segura.
 
@@ -53,7 +53,7 @@ Al existir libertad tecnológica en las bases de la prueba, se ha optado por una
 
 ## 🐳 Inicio Rápido con Docker Compose (Recomendado)
 
-Para desplegar la solución completa (Base de datos MySQL, API Backend Laravel y Frontend SPA Vue 3) en un solo comando:
+Para desplegar la solución completa (Base de datos MySQL, API Backend Laravel y Frontend SPA React 18) en un solo comando:
 
 ```bash
 docker compose up --build
@@ -92,7 +92,7 @@ php artisan serve
 > La API REST quedará disponible en `http://localhost:8000`.  
 > Documentación Swagger UI disponible en `http://localhost:8000/api/documentation`.
 
-### 2. Levantando el Frontend (Vue 3 SPA)
+### 2. Levantando el Frontend (React SPA)
 *(Ver guía detallada en [frontend/README.md](frontend/README.md))*
 ```bash
 cd frontend
